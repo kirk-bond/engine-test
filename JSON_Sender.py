@@ -19,7 +19,7 @@ jsonString = JSONEncoder().encode({
     ]
   }
 })
-print(type(jsonString)
+print(type(jsonString))
 s.connect((host, port))
 s.send(jsonString)
 result = s.recv(1024)
