@@ -21,6 +21,7 @@ class client(Thread):
     def run(self):
         while True:
             clientsocket, addr = s.accept()
+            print("Connection")
             try:
                 json.loads(addr.decode())
             except Exception as e:
