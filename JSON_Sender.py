@@ -21,7 +21,7 @@ jsonString = {
 }
 sendString = json.dumps(jsonString)
 s.connect((host, port))
-s.send(sendString)
+s.send(sendString.encode())
 result = s.recv(1024)
 print(result)
 s.close()

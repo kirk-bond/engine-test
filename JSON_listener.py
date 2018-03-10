@@ -20,7 +20,7 @@ class client(Thread):
         while True:
             clientsocket, addr = s.accept()
             try:
-                json.loads(addr)
+                json.loads(addr.decode())
             except Exception as e:
                 s.send("Invalid JSON format: %s") % e
             s.send("Received valid flag input: %s") % addr
