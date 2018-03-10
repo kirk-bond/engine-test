@@ -8,7 +8,9 @@ s = socket.socket(socket.AF_INET,
 
 host = socket.gethostname()
 port = int(sys.argv[1])
-s.bind((host,port))
+s.bind((host, port))
+
+
 class client(Thread):
     def __init__(self, socket, address):
         Thread.__init__(self)
@@ -28,5 +30,5 @@ class client(Thread):
 
 s.listen(20)
 while True:
-    clientsokker, address = s.accept()
-    client(clientsokker, address)
+    clientsocket, address = s.accept()
+    client(clientsocket, address)
