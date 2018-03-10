@@ -20,8 +20,6 @@ jsonString = {
   }
 }
 sendString = json.dumps(jsonString)
-print(sendString)
-print(type(sendString))
 s.connect((host, port))
 s.send(sendString)
 result = s.recv(1024)
