@@ -19,11 +19,12 @@ class client(Thread):
     def run(self):
         while True:
             clientsocket, addr = s.accept()
-                try:
-                    json.loads(addr)
-                except Exception as e:
-                    s.send("Invalid JSON format: %s") %e
-            s.send("Received valid flag input: %s") %addr
+            try:
+                json.loads(addr)
+            except Exception as e:
+                s.send("Invalid JSON format: %s") % e
+            s.send("Received valid flag input: %s") % addr
+
 
 s.listen(20)
 while True:
