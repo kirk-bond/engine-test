@@ -11,7 +11,7 @@ port = int(sys.argv[1])
 s.bind((host, port))
 
 
-class client(Thread):
+class ThreadedClient(Thread):
     def __init__(self, socket, address):
         Thread.__init__(self)
         self.sock = socket
@@ -32,4 +32,4 @@ class client(Thread):
 s.listen(20)
 while True:
     clientsocket, address = s.accept()
-    client(clientsocket, address)
+    ThreadedClient(clientsocket, address)
