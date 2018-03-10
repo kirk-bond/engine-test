@@ -19,6 +19,7 @@ jsonString = JSONEncoder().encode({
     ]
   }
 })
+print(jsonString)
 print(type(jsonString))
 s.connect((host, port))
 s.send(jsonString)
