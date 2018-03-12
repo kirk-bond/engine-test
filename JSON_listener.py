@@ -9,6 +9,7 @@ s = socket.socket(socket.AF_INET,
 host = socket.gethostname()
 port = int(sys.argv[1])
 s.bind((host, port))
+s.listen(20)
 
 
 class ThreadedClient(Thread):
@@ -29,7 +30,6 @@ class ThreadedClient(Thread):
             s.send("Received valid flag input: %s") % addr
 
 
-s.listen(20)
 while True:
     clientsocket, address = s.accept()
     ThreadedClient(clientsocket, address)
