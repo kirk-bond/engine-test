@@ -27,7 +27,8 @@ class ThreadedClient(Thread):
                 json.loads(addr.decode())
             except Exception as e:
                 s.send("Invalid JSON format: %s") % e
-            s.send("Received valid flag input: %s") % addr
+            else:    
+                s.send("Received valid flag input: %s") % addr
 
 
 while True:
