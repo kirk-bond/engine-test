@@ -8,11 +8,9 @@ s = socket.socket(socket.AF_INET,
 host = sys.argv[1]
 port = int(sys.argv[2])
 
-jsonString = {"test" : "data"}
-sendString = json.dumps(jsonString)
+userinput = sys.argv[3]
 s.connect((host, port))
-s.send(sendString.encode())
-# s.send(jsonString.encode())
+s.send(userinput.encode())
 result = s.recv(1024)
 print(result)
 s.close()
