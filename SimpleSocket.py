@@ -1,5 +1,6 @@
 import json
 import socketserver
+import sys
 
 
 class SocketServer(socketserver.BaseRequestHandler):
@@ -18,6 +19,6 @@ class SocketServer(socketserver.BaseRequestHandler):
 
 
 if __name__ == "__main__":
-    HOST, PORT = "localhost", 5555
+    HOST, PORT = "localhost", int(sys.argv[1])
     server = socketserver.TCPServer((HOST, PORT), SocketServer)
     server.serve_forever()
