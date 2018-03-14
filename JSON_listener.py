@@ -22,13 +22,13 @@ class ThreadedClient(Thread):
     def run(self):
         while True:
             clientsocket, addr = s.accept()
-            print("Connection")
+            print("Connection:")
             try:
-                json.loads(addr.decode())
+                json.loads(test.decode())
             except Exception as e:
-                s.send("Invalid JSON format: %s") % e
+                clientsocket.sendall("Invalid JSON format: %s") % e
             else:    
-                s.send("Received valid flag input: %s") % addr
+                clientsocket.sendall("Received valid flag input: %s") % test
 
 
 while True:
